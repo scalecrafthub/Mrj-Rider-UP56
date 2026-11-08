@@ -1,108 +1,73 @@
-import { MessageCircle, ArrowDownRight, Star } from "lucide-react";
-import { Image } from "@/components/ui/image";
-import {
-  DEFAULT_WA_MESSAGE,
-  PHOTOS,
-  RATING,
-  REVIEW_COUNT,
-  whatsapp,
-} from "@/lib/site";
-
-const STATS = [
-  { value: `${RATING}★`, label: "Google rating" },
-  { value: REVIEW_COUNT, label: "Google reviews" },
-  { value: "9 pm", label: "Open till, daily" },
-];
+import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
+import { Image } from '@/components/ui/image';
+import { site } from '@/lib/siteContent';
 
 export default function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden border-b border-white/10">
-      <div className="absolute inset-0 blueprint opacity-60" aria-hidden="true" />
-      <div className="absolute inset-0 heat-glow" aria-hidden="true" />
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 gap-12 px-5 pb-16 pt-28 md:px-8 md:pb-24 md:pt-36 lg:grid-cols-[1.13fr_0.87fr] lg:items-center lg:gap-12">
-        <div>
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 bg-ignition/12 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.26em] text-ignition">
-              <Star className="h-3 w-3 fill-ignition" aria-hidden="true" />
-              {RATING} · {REVIEW_COUNT} reviews
-            </span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.26em] text-muted-foreground">
-              Maharajganj · UP
-            </span>
-          </div>
+    <section id="top" className="relative overflow-hidden pt-28 pb-16 sm:pt-36 lg:pb-24">
+      <div className="mx-auto grid max-w-6xl items-end gap-12 px-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:px-10">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <p className="text-[11px] uppercase tracking-[0.3em] text-accent">{site.courts}</p>
 
-          <h1 className="mt-7 font-heading text-[clamp(2.3rem,4.2vw,3.3rem)] font-extrabold uppercase leading-[0.92] tracking-[-0.02em] text-chrome">
-            Your bike,
+          <h1 className="mt-7 font-display text-[2.7rem] font-light leading-[1.03] tracking-[-0.02em] sm:text-6xl lg:text-[4.4rem]">
+            A steady hand in
             <br />
-            <span className="stroke-title">our passion.</span>
+            matters that
+            <br />
+            <span className="italic text-accent">change lives.</span>
           </h1>
 
-          <p className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground md:text-[17px]">
-            Complete motorcycle customization, styling and performance work from the
-            workshop at Jai Prakash Nagar. From full frame-off builds and vinyl wraps to
-            PPF lamination, custom exhausts and engine work — one crew, start to finish.
+          <p className="mt-8 max-w-md text-[15px] leading-relaxed text-muted-foreground">
+            Advocate Shivam Tripathi advises and represents clients in family, property,
+            intellectual property and civil matters — practising from chambers beside the
+            District Court at Maharajganj since {site.since}.
           </p>
 
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-10 flex flex-wrap items-center gap-3">
             <a
-              href={whatsapp(DEFAULT_WA_MESSAGE)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center justify-center gap-2.5 bg-ignition px-7 py-4 font-mono text-xs uppercase tracking-[0.2em] text-carbon transition-all hover:bg-chrome"
+              href={site.phoneHref}
+              className="group inline-flex items-center gap-3 rounded-full bg-primary px-7 py-3.5 text-[13px] font-medium tracking-wide text-primary-foreground transition-colors hover:bg-accent"
             >
-              <MessageCircle className="h-4 w-4" aria-hidden="true" />
-              Chat on WhatsApp
+              Book a consultation
+              <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
             <a
-              href="#builds"
-              className="group inline-flex items-center justify-center gap-2.5 border border-white/20 px-7 py-4 font-mono text-xs uppercase tracking-[0.2em] text-chrome transition-colors hover:border-ignition hover:text-ignition"
+              href={site.emailHref}
+              className="rounded-full border border-border px-7 py-3.5 text-[13px] font-medium tracking-wide text-foreground transition-colors hover:border-foreground"
             >
-              See the builds
-              <ArrowDownRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5" aria-hidden="true" />
+              Write to the chamber
             </a>
           </div>
+        </motion.div>
 
-          <dl className="mt-12 grid max-w-lg grid-cols-3 gap-px border-t border-white/10 pt-6">
-            {STATS.map((s) => (
-              <div key={s.label}>
-                <dt className="sr-only">{s.label}</dt>
-                <dd className="font-heading text-2xl font-extrabold text-chrome">
-                  {s.value}
-                </dd>
-                <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                  {s.label}
-                </p>
-              </div>
-            ))}
-          </dl>
-        </div>
-
-        <div className="relative">
-          <div className="absolute -left-3 -top-3 h-10 w-10 border-l border-t border-ignition/70" aria-hidden="true" />
-          <div className="absolute -bottom-3 -right-3 h-10 w-10 border-b border-r border-ignition/70" aria-hidden="true" />
-          <div className="relative overflow-hidden border border-white/12 bg-secondary">
+        <motion.figure
+          initial={{ opacity: 0, y: 32 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          className="relative"
+        >
+          <div className="mx-auto max-w-sm lg:max-w-none">
             <Image
-              src={PHOTOS.demon}
-              alt="Matte black custom motorcycle with red tank lettering and wrapped exhaust, built by MRJ Riders Up56"
-              className="aspect-[4/5] w-full lg:aspect-[5/6]"
+              src={site.portrait}
+              alt="Advocate Shivam Tripathi"
+              className="aspect-[4/5] w-full rounded-sm object-cover"
               fittingType="fill"
-              focalPointY={0.5}
+              focalPointX={0.5}
+              focalPointY={0.35}
             />
-            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-gradient-to-t from-carbon via-carbon/70 to-transparent p-5">
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ignition">
-                  Featured build
-                </p>
-                <p className="mt-1 font-heading text-lg font-bold uppercase tracking-wide text-chrome">
-                  Matte Black Demon
-                </p>
-              </div>
-              <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                MRJ-01
+            <figcaption className="mt-4 flex items-baseline justify-between border-t border-border pt-3">
+              <span className="font-display text-base">{site.name}</span>
+              <span className="text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+                Advocate, {site.since}
               </span>
-            </div>
+            </figcaption>
           </div>
-        </div>
+        </motion.figure>
       </div>
     </section>
   );

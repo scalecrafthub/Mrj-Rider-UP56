@@ -1,29 +1,27 @@
-import SiteHeader from "@/components/site/SiteHeader";
-import Hero from "@/components/site/Hero";
-import Ticker from "@/components/site/Ticker";
-import Services from "@/components/site/Services";
-import Builds from "@/components/site/Builds";
-import Statement from "@/components/site/Statement";
-import Process from "@/components/site/Process";
-import Visit from "@/components/site/Visit";
-import SiteFooter from "@/components/site/SiteFooter";
-import WhatsAppFab from "@/components/site/WhatsAppFab";
+import Nav from '@/components/site/Nav';
+import Hero from '@/components/site/Hero';
+import FactsBar from '@/components/site/FactsBar';
+import PracticeAreas from '@/components/site/PracticeAreas';
+import Statement from '@/components/site/Statement';
+import Press from '@/components/site/Press';
+import Chamber from '@/components/site/Chamber';
+import Contact from '@/components/site/Contact';
+import Footer from '@/components/site/Footer';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-carbon">
-      <SiteHeader />
+    <div className="min-h-screen bg-background">
+      <Nav />
       <main>
         <Hero />
-        <Ticker />
-        <Services />
-        <Builds />
+        <FactsBar />
+        <PracticeAreas />
         <Statement />
-        <Process />
-        <Visit />
+        <Press />
+        <Chamber />
+        <Contact />
       </main>
-      <SiteFooter />
-      <WhatsAppFab />
+      <Footer />
     </div>
   );
 }

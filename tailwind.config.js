@@ -44,9 +44,6 @@ module.exports = {
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
-  			chrome: '#E4E4E7',
-  			carbon: '#050505',
-  			ignition: '#FF8A00',
   			chart: {
   				'1': 'hsl(var(--chart-1))',
   				'2': 'hsl(var(--chart-2))',
@@ -87,22 +84,11 @@ module.exports = {
   				to: {
   					height: '0'
   				}
-  			},
-  			'ticker': {
-  				from: { transform: 'translateX(0)' },
-  				to: { transform: 'translateX(-50%)' }
-  			},
-  			'pulse-ring': {
-  				'0%': { transform: 'scale(1)', opacity: '0.55' },
-  				'70%': { transform: 'scale(1.7)', opacity: '0' },
-  				'100%': { transform: 'scale(1.7)', opacity: '0' }
   			}
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out',
-  			'ticker': 'ticker 32s linear infinite',
-  			'pulse-ring': 'pulse-ring 2.6s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+  			'accordion-up': 'accordion-up 0.2s ease-out'
   		}
   	}
   },
